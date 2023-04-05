@@ -1,8 +1,6 @@
 // iterators4.rs
 // Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 pub fn factorial(num: u64) -> u64 {
     // Complete this function to return the factorial of num
     // Do not use:
@@ -13,6 +11,22 @@ pub fn factorial(num: u64) -> u64 {
     // For an extra challenge, don't use:
     // - recursion
     // Execute `rustlings hint iterators4` for hints.
+    // match num {
+    //     0 => 1,
+    //     value => {
+    //         let mut u : u64 = 1;
+    //         for v in 1..=value {
+    //             u *=v;
+    //         }
+    //         u
+    //     }
+    // }
+    match num {
+        0 => 1,
+        value => {
+            (1..=value).map(|x| x).collect::<Vec<_>>().iter().fold(1u64, |mul, elem| mul * elem)
+        }
+    }
 }
 
 #[cfg(test)]
